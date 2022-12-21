@@ -27,7 +27,7 @@ import Result from "./pages/result/Result";
 
 function App() {
 	// const [isLoggedIn,setIsloggedIn] = useState(false)
-  //   return (
+    return (
   //       <QueryClientProvider client={queryClient}>
   //           <ThemeProvider theme={variables}>
   //               <loginContext.Provider value={[ isLoggedIn, setIsloggedIn ]}>
@@ -45,7 +45,7 @@ function App() {
     //             </loginContext.Provider>
     //         </ThemeProvider>
     //     </QueryClientProvider>
-    // );
+    );
 }
 
 export default App;
