@@ -1,6 +1,6 @@
 //ライブラリ
-import { BrowserRouter, Routes, Route, useSubmit } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
+// import { ThemeProvider } from "styled-components";
 
 //css用の定数ファイル読み込み
 // import variables from "./Variables4css";
@@ -18,7 +18,7 @@ import City from "./pages/city/City";
 import Body from "./pages/body/Body";
 import Result from "./pages/result/Result";
 
-import { createContext, useState } from "react";
+// import { createContext, useState } from "react";
 
 // const queryClient = new QueryClient();
 // //ログインの状態をグローバルな値で保持
