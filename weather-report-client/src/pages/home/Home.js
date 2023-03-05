@@ -15,10 +15,10 @@ function Home() {
                         測定開始！
                     </Button>
                     <H2>会員登録をして楽にコーディネイトを決めませんか？</H2>
-                    <Button variant="primary" size="lg" active href="login">
+                    <Button variant="primary" size="lg" active href="#">
                         ログイン
                     </Button>{' '}
-                    <Button variant="secondary" size="lg" active href="signup">
+                    <Button variant="secondary" size="lg" active href="#">
                         新規会員登録
                     </Button>
                 </Form>
