@@ -63,7 +63,7 @@ function Home() {
 
 
                 <H3>再度計測をする場合は開始を押してね！</H3>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" href="/">
                     開始！
                 </Button>
             </DIV>
