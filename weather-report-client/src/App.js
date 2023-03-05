@@ -36,7 +36,7 @@ function App() {
 	                        <Route path={`/`} element={<Home />} />
 	                        <Route path={`city`} element={<City />} />
 	                        <Route path={`body`} element={<Body />} />
-                          <Route path={`result`} element={<Result />} />
+                            <Route path={`result`} element={<Result />} />
 	                        
 	                        <Route path={`login`} element={<Login />} />
 	                        <Route path={`signup`} element={<SignUp />} />
