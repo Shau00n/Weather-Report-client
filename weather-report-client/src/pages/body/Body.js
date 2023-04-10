@@ -3,67 +3,95 @@ import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Navbar from '../../components/Navbar';
-// import Main from '../../layouts/Main';
+import Result from "../result/Result";
 
-function Home() {
-    // useStateで管理している値
-    
+function Body() {
+    const [formData, setFormData] = useState({
+        met: '',
+        ta: '',
+        tr: '',
+        v: '',
+        rh: ''
+    });
 
+    const handleChange = (event) => {
+        setFormData({
+            ...formData,
+            [event.target.name]: event.target.value
+        });
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const queryParams = new URLSearchParams(formData).toString();
+        const url = `http://localhost:3000/result?${queryParams}`;
+        window.location.href = url;
+    };
     return (
         < >
             <Navbar />
             <DIV>
-                {/* 性別選択 */}
-                <Form.Select aria-label="Default select example" class="form">
-                    <option>性別を選択してください</option>
-                    <option value="1">男性</option>
-                    <option value="2">女性</option>
-                </Form.Select><br />
-                {/* 身長選択 */}
-                <Form.Label>身長を入力して下さい</Form.Label>
-                <Form.Control
-                    required
-                    type="number"
-                    placeholder="身長"
-                /><br />
-                {/* 体重選択 */}
-                <Form.Label>体重を入力して下さい</Form.Label>
-                <Form.Control
-                    required
-                    type="number"
-                    placeholder="体重"
-                    id='form-weight'
-                /><br />
-                {/* 年齢選択 */}
-                <Form.Label>年齢を入力して下さい</Form.Label>
-                <Form.Control
-                    required
-                    type="number"
-                    placeholder="年齢"
-                /><br />
-                {/* 活動レベル選択 */}
-                <Form.Select aria-label="Default select example" class="form">
-                    <option>活動レベルを選択してください</option>
-                    <option value="1..0">椅子に座って静かにしている</option>
-                    <option value="1.4">立って仕事をしている</option>
-                    <option value="1.9">軽い荷物を運んでいる</option>
-                </Form.Select><br />
-
-                <DIV2 >
-                    <Button variant="secondary" size="lg" active href="/">
-                        前へ
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group controlId="formMet">
+                        <Form.Label>代謝量 (met)</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="代謝量を入力してください"
+                            name="met"
+                            value={formData.met}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="formTa">
+                        <Form.Label>空気温度 (℃)</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="温度を入力してください"
+                            name="ta"
+                            value={formData.ta}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="formTr">
+                        <Form.Label>放射温度 (℃)</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="放射温度を入力してください"
+                            name="tr"
+                            value={formData.tr}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="formV">
+                        <Form.Label>平均風速 (m/s)</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="風速を入力してください"
+                            name="v"
+                            value={formData.v}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="formRh">
+                        <Form.Label>相対湿度 (%)</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="相対湿度を入力してください"
+                            name="rh"
+                            value={formData.rh}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        送信
                     </Button>
-                    <Button variant="primary" size="lg" active href="result">
-                        次へ
-                    </Button>{' '}
-                </DIV2>
-
+                </Form>
             </DIV>
         </>
     );
 }
 
-export default Home;
+export default Body;
 
 
 const H1 = styled.h1`
@@ -81,6 +109,7 @@ const H2 = styled.h2`
 
 `
 const DIV = styled.div`
+
     text-align: center;
     background-color: #EEFAFF;
     margin-top: 30px;
